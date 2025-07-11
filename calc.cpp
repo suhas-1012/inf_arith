@@ -37,7 +37,7 @@ bool InfiniteArithmetic::Integer::operator<(const InfiniteArithmetic::Integer& g
         return true;
     }
     if( len2 == len1 ){
-        for(int j = 0 ; j < len1 ; j++){
+        for(size_t j = 0 ; j < len1 ; j++){
             if(num1[j] < num2[j]){
                 return true;
             }
@@ -499,12 +499,12 @@ InfiniteArithmetic::Float InfiniteArithmetic::Float::operator/(const InfiniteAri
         }
     }
     int x;
-    for(  i  ; j<=1000 ;  i  ++){
+    for(; j<=1000 ;  i  ++){
         x=0;
         temp_less_num2= false;
         //doing repeated subtraction to know the quotient.
         //in the for loop j is no of digits after the decimal.
-        for(x;!temp_less_num2;x++){
+        for(;!temp_less_num2;x++){
             temp_less_num2=InfiniteArithmetic::Integer{temp}<InfiniteArithmetic::Integer{num2};
             if(!temp_less_num2){
                 temp=(InfiniteArithmetic::Integer{temp}-InfiniteArithmetic::Integer{num2}).val();

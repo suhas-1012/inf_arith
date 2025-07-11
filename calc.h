@@ -30,7 +30,7 @@ namespace InfiniteArithmetic {
                 //Removing the first negative character and adding it after removing leading zeroes.
             }
             // Eliminate leading zeros.
-            int first_non_zero = int0.find_first_not_of('0');
+            std::size_t first_non_zero = int0.find_first_not_of('0');
             if (first_non_zero == string::npos) {
                 // Integer is zero.
                 int0 = "0";
@@ -82,10 +82,12 @@ namespace InfiniteArithmetic {
 
     class Float {
     private:
-        string float0{};
+        std::string float0{};
         //private variable float0 storing a large float which can not be stored using int datatype or bigger datatypes
+       
         int place{-1};
         //the index of the decimal in a sring
+        
     public:
         //default constructor
         Float() : float0{"0.0"}, place{1} {}
@@ -97,7 +99,7 @@ namespace InfiniteArithmetic {
         Float(const string s) {
             float0 = s;
             // Add .0 if '.' not present
-            place = float0.find_first_of('.');
+            std:: size_t place = float0.find_first_of('.');
             if (place == string::npos) {
                 float0.push_back('.');
                 float0.push_back('0');
@@ -143,7 +145,7 @@ namespace InfiniteArithmetic {
             place = float0.find_first_of('.');
         }
         //copy constructor
-        Float(const Float &given) : place{given.place}, float0{given.float0} {}
+        Float(const Float &given) : float0{given.float0}, place{given.place} {}
         //destructor
         ~Float() {
             float0 = "";
