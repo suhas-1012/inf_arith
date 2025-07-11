@@ -42,27 +42,15 @@ inf_arith/
 
 ### Build Instructions
 
-**Method 1: Using Makefile**
+**Using Makefile**
 ```bash
 # Build the main executable
 make all
-
-# Build as a static library
-make libmy_inf_arith
-
 # Clean build artifacts
 make clean
 ```
 
-**Method 2: Manual Compilation**
-```bash
-# Compile the main program
-g++ main.cpp -o my_inf_arith
 
-# Or compile as a library
-g++ calc.cpp -o my_inf_arith.o
-ar rcs libmy_inf_arith.a my_inf_arith.o
-```
 
 ## Usage
 
@@ -90,6 +78,7 @@ The program accepts command-line arguments in the following format:
 ### Library Integration
 
 **Include the library in your C++ project:**
+
 ```cpp
 #include "calc.h"
 using namespace InfiniteArithmetic;
@@ -111,6 +100,18 @@ int main() {
 
     return 0;
 }
+```
+- Do by using the commands
+- and include my library into your own project
+```bash
+g++ -Wall -std=c++11 -c calc.cpp
+
+#multiplefiles if multiple cpp files are being used
+g++ -Wall -std=c++11 -c <yourfilenames>.cpp
+#link the files
+g++ -Wall -std=c++11 -o <targetexecutable> <allobjectfiles>
+#run your targetexecutable your project using the infinite calculator without worrying overflows
+
 ```
 
 ## Class Reference
