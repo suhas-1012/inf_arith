@@ -78,10 +78,7 @@ namespace InfiniteArithmetic {
         friend std::ostream &operator<<(std::ostream &out, const Integer &c);
     };
 
-    std::ostream &operator<<(std::ostream &out, const Integer &c) {
-        out << c.int0;
-        return out;
-    }
+    
 
     class Float {
     private:
@@ -174,10 +171,9 @@ namespace InfiniteArithmetic {
         static Float parse (string s) {
             return Float {s};
         }
+
+        friend std::ostream& operator<<(std::ostream& out, const Float&c);
     };
 
-    std::ostream &operator<<(std::ostream &out, const Float &c) {
-        out << c.float0;
-        return out;
-    }
+    
 }

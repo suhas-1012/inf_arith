@@ -1,9 +1,25 @@
-all :
-	g++ main.cpp -o my_inf_arith
+# Compiler settings
+CXX      := g++
+CXXFLAGS := -Wall -std=c++11
 
-libmy_inf_arith:
-	g++ calc.cpp -o my_inf_arith.o
-	ar rcs libmy_inf_arith.a my_inf_arith.o
-	rm my_inf_arith.o
+# Target executable
+TARGET   := my_inf_arith
+
+# Source and object files
+SRCS     := main.cpp calc.cpp
+OBJS     := $(SRCS:.cpp=.o)
+
+# Default build
+all: $(TARGET)
+
+# Link step
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# Compile step
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+# Clean up
 clean:
-	rm -f my_inf_arith libmy_inf_arith.a *.o
+	rm -f $(OBJS) $(TARGET)

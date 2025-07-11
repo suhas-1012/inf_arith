@@ -1,5 +1,5 @@
 #include<iostream>
-#include"calc.cpp"
+#include"calc.h"
 int main (int argv,char* argc[]) {	
     std::string s1(argc[1]);
     std::string s2(argc[2]);

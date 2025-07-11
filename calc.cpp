@@ -1,5 +1,18 @@
 #include "calc.h"
 
+
+namespace InfiniteArithmetic {
+    std::ostream& operator<<(std::ostream& out, const Integer& c) {
+        out << c.val();
+        return out;
+    }
+    std::ostream& operator<<(std::ostream& out, const Float& c) {
+        out << c.val();
+        return out;
+    }
+}
+
+
 /*input :- 2 Integer class objects
  * output :- true(1) or false(0)
  *ture if a<b a string is smaller than b else false
